@@ -5,7 +5,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      delay: 5
+      delay: 5,
+      buttonText: 'GO FULL'
     }
   }
 
@@ -56,8 +57,10 @@ class App extends React.Component {
     const title = document.querySelector('.title');
     if (title.style.display === 'none') {
       title.style.display = 'block';
+      this.setState({ buttonText: 'GO FULL' })
     } else {
       title.style.display = 'none';
+      this.setState({ buttonText: 'GO LOW' })
     }
   }
 
@@ -67,9 +70,7 @@ class App extends React.Component {
         <div className='title'>THE DANCE ROOM</div>
         <video className='player'>
         </video>
-        <button onClick={this.goFull}>fullscreen</button>
-        {/* <input onChange={this.changeQuan} type="text" id="delay-input"></input>
-        <button onClick={this.getVideo}>Update</button> */}
+        <button onClick={this.goFull} className='full-button'>{this.state.buttonText}</button>
       </React.Fragment>
     );
   }
