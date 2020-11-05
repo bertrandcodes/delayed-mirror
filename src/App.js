@@ -12,7 +12,6 @@ class App extends React.Component {
 
   componentDidMount() {
     const video = document.querySelector('.player');
-    const inputBox = document.querySelector('#delay-input')
 
     const getVideo = function (delay) {
       navigator.mediaDevices.getUserMedia({ video: true, audio: false })
