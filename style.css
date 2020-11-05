@@ -1,9 +1,22 @@
 body {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-size: 35px;
+}
+
+.title {
+  margin: 10px auto 20px auto;
 }
 
 .player {
-  width: 70%;
+  width: 60%;
+  background-color: black;
+}
+
+#delay-input {
+  margin: 20px 0 15px 0;
 }
