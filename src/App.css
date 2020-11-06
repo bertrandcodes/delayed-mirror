@@ -20,14 +20,66 @@ body::-webkit-scrollbar {
   margin: 10px auto 10px auto;
 }
 
-.player {
-  width: 50%;
+.loading {
+  width: 70vh;
+  height: 50vh;
   background-color: black;
+  margin: 10px 0 40px 0;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0;
+  color: white;
+  font-size: 20px;
+}
+
+.loader {
+  margin: auto;
+  margin-top: 5.5em;
+  margin-bottom: 1em;
+  width: 10em;
+  height: 1em;
+  background: transparent;
+  background-position: -10px 0;
+  border: solid 1px #555555;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.loader:before {
+  content: "";
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  animation: loader 5.4s ease-out infinite;
+  background: linear-gradient(to right, #ffa5a5 0%, #ffa5a5 50%, #eeeeee 50%, #eeeeee 100%);
+}
+
+@keyframes loader {
+  0% {
+    left: -100%;
+  }
+  75% {
+    left: -10%;
+  }
+  85% {
+    left: -5%;
+  }
+  95% {
+    left: 0;
+  }
+}
+.player {
+  width: 70vh;
+  height: 50vh;
   margin: 10px 0 40px 0;
 }
 
 .full {
   width: 100vw;
+  height: 100vh;
 }
 
 #delay-input {
@@ -42,7 +94,7 @@ button {
   border: 0;
   vertical-align: middle;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   font-family: inherit;
   margin-bottom: 50px;
 }
