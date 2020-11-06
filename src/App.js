@@ -6,44 +6,45 @@ class App extends React.Component {
     super();
     this.state = {
       delay: 5,
+      ready: false,
       buttonText: 'GO FULL'
     }
   }
 
   componentDidMount() {
-    const video = document.querySelector('.player');
+    this.getVideo(this.state.delay);
+  }
 
-    const getVideo = function (delay) {
-      navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-        .then(localMediaStream => {
-          const chunks = []
-          const mediaRecorder = new MediaRecorder(localMediaStream)
+  getVideo = (delay) => {
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+      .then(localMediaStream => {
+        const chunks = []
+        const mediaRecorder = new MediaRecorder(localMediaStream)
 
-          mediaRecorder.start()
-          setTimeout(() => {
-            mediaRecorder.stop()
-            getVideo(delay)
-          }, delay * 1000);
+        mediaRecorder.start()
+        setTimeout(() => {
+          mediaRecorder.stop()
+          this.setState({ ready: true })
+          this.getVideo(delay)
+        }, delay * 1000);
 
 
-          mediaRecorder.onstop = () => {
-            const blob = new Blob(chunks, { type: 'video/ogg' })
-            var videoURL = URL.createObjectURL(blob);
-            video.src = videoURL;
-            video.play();
-          }
+        mediaRecorder.onstop = () => {
+          const video = document.querySelector('.player');
+          const blob = new Blob(chunks, { type: 'video/ogg' })
+          var videoURL = URL.createObjectURL(blob);
+          video.src = videoURL;
+          video.play();
+        }
 
-          mediaRecorder.ondataavailable = e => {
-            chunks.push(e.data);
-          }
+        mediaRecorder.ondataavailable = e => {
+          chunks.push(e.data);
+        }
 
-        })
-        .catch(err => {
-          console.error('No webcam!', err)
-        })
-    }
-
-    getVideo(this.state.delay);
+      })
+      .catch(err => {
+        console.error('No webcam!', err)
+      })
   }
 
   changeQuan = (e) => {
@@ -66,10 +67,17 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className='title'>THE DANCE ROOM</div>
-        <video className='player'>
-        </video>
-        <button onClick={this.goFull} className='full-button'>{this.state.buttonText}</button>
+        <div className="title">THE DANCE ROOM</div>
+        {this.state.ready ?
+          <video className="player">
+          </video>
+          :
+          <div className="loading">
+            <div class="loader"> </div>
+            <h2>setting up the studio...</h2>
+          </div>
+        }
+        <button onClick={this.goFull} className="full-button" disabled={!this.state.ready}>{this.state.buttonText}</button>
         <div>
 
           <a className="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsharingbuttons.io" target="_blank" rel="noopener" aria-label="">
