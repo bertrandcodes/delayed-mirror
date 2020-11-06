@@ -21,10 +21,10 @@ body {
   }
 
   .loading {
-    width: 70vh;
-    height: 50vh;
+    width: 80vh;
+    height: 60vh;
+    margin-bottom: 30px;
     background-color: black;
-    margin: 10px 0 40px 0;
     color: white;
   }
 
@@ -39,9 +39,9 @@ h2 {
   
 .loader {
   margin: auto;
-  margin-top: 5.5em;
-  margin-bottom: 1em;
-  width: 10em;
+  margin-top: 35%;
+  margin-bottom: 25px;
+  width: 60%;
   height: 1em;
   background: transparent;
   background-position: -10px 0;
@@ -77,14 +77,15 @@ h2 {
   
   
   .player {
-    width: 70vh;
-    height: 50vh;
-    margin: 10px 0 40px 0
+    width: 80vh;
+    height: 60vh;
+    margin-bottom: 30px;
   }
   
   .full {
     width: 100vw;
     height: 100vh;
+    margin-top: -10px;
   }
   
   #delay-input {
@@ -157,6 +158,12 @@ button {
 }
 
 // Social media buttons
+
+.share {
+  position: static;
+  bottom: 20px;
+  font-size: 30px;
+}
 
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
