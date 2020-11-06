@@ -355,3 +355,32 @@ background-color: #FF6600
   background-color: #046293;
   border-color: #046293;
 }
+
+.mobile-message {
+  display: none;
+}
+
+@media screen and (max-width: 375px) {
+  .title {
+    display: none
+  }
+  .player {
+    display: none
+  }
+  .loading {
+    display: none;
+  }
+  .full-button {
+    display: none;
+  }
+  .share {
+    position: absolute;
+    bottom: 10px;
+  }
+  .mobile-message {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 60%;
+  }
+}

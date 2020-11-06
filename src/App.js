@@ -78,6 +78,11 @@ class App extends React.Component {
           </div>
         }
         <button onClick={this.goFull} className="full-button" disabled={!this.state.ready}>{this.state.buttonText}</button>
+
+        <div className="mobile-message">
+          A webcam is required for the full experience 👀
+          </div>
+
         <div className="share">
 
           <a className="resp-sharing-button__link" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdancersroom.com%2F&amp;src=sdkpreparse" target="_blank" rel="noopener" aria-label="">
@@ -86,7 +91,6 @@ class App extends React.Component {
             </div>
             </div>
           </a>
-
 
           <a className="resp-sharing-button__link" href="https://twitter.com/intent/tweet?url=&text=Check%20out%20this%20dance%20app%3A%20https%3A%2F%2Fdancersroom.com%2F" target="_blank" rel="noopener" aria-label="">
             <div className="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" className="resp-sharing-button__icon resp-sharing-button__icon--solid">
