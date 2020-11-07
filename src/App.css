@@ -26,19 +26,24 @@ body::-webkit-scrollbar {
   margin-bottom: 30px;
   background-color: black;
   color: white;
+  display: flex;
+  align-items: center;
 }
 
-h2 {
+.loading-div {
+  width: 100%;
+}
+
+.loading-div h2 {
   text-align: center;
-  margin-top: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
   color: white;
   font-size: 20px;
 }
 
 .loader {
   margin: auto;
-  margin-top: 35%;
-  margin-bottom: 25px;
   width: 60%;
   height: 1em;
   background: transparent;

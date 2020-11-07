@@ -73,8 +73,10 @@ class App extends React.Component {
           </video>
           :
           <div className="loading">
-            <div className="loader"> </div>
-            <h2>setting up the studio...</h2>
+            <div className="loading-div">
+              <div className="loader"> </div>
+              <h2>setting up the studio...</h2>
+            </div>
           </div>
         }
         <button onClick={this.goFull} className="full-button" disabled={!this.state.ready}>{this.state.buttonText}</button>
