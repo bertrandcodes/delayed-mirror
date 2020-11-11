@@ -128,11 +128,11 @@ class App extends React.Component {
               <div className="loader"> </div>
               <div className="message-holder">
                 <div className="messages">
-                  <h2>use Chrome or Firefox</h2>
-                  <h2>make sure you allow webcam access</h2>
-                  <h2>bust a move!</h2>
-                  <h2>mopping the floors...</h2>
-                  <h2>setting up the studio...</h2>
+                  <h2>Use Chrome or Firefox</h2>
+                  <h2>Make sure you allow webcam access</h2>
+                  <h2>Bust a move!</h2>
+                  <h2>Mopping the floors...</h2>
+                  <h2>Setting up the studio...</h2>
                 </div>
               </div>
             </div>
