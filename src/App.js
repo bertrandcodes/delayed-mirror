@@ -31,7 +31,6 @@ class App extends React.Component {
           this.getVideo(this.state.delay)
         }, this.state.delay * 1000);
 
-
         mediaRecorder.onstop = () => {
           const video = document.querySelector('.player');
           const blob = new Blob(chunks, { type: 'video/ogg' })
@@ -80,7 +79,6 @@ class App extends React.Component {
     this.setState({
       changedDelay: e.target.value
     })
-    console.log(this.state.changedDelay)
   }
 
   submit = (e) => {
@@ -90,6 +88,7 @@ class App extends React.Component {
         adjust: false,
         changedDelay: 5
       })
+      window.alert('Currently, changing the delay will freeze up the screen for the duration of new delay time. Simply wait it out and the app should work as expected. Our developer is working on fixing this!')
     }
   }
 
@@ -98,7 +97,7 @@ class App extends React.Component {
       <React.Fragment>
         <div className="title">THE DANCE MIRROR</div>
         {this.state.adjust ?
-          <div className="sub"><input onChange={this.handleChange} onKeyDown={this.submit}></input> seconds
+          <div className="sub"><input onChange={this.handleChange} onKeyDown={this.submit}></input> sec
           <img
               className="gear"
               onClick={this.adjustDelay}
