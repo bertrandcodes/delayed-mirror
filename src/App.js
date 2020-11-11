@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Gear from './simple-Gear.svg';
 
 class App extends React.Component {
   constructor() {
@@ -7,7 +8,9 @@ class App extends React.Component {
     this.state = {
       delay: 5,
       ready: false,
-      buttonText: 'GO FULL'
+      buttonText: 'GO FULL',
+      adjust: false,
+      changedDelay: 5
     }
   }
 
@@ -15,7 +18,7 @@ class App extends React.Component {
     this.getVideo(this.state.delay);
   }
 
-  getVideo = (delay) => {
+  getVideo = () => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: false })
       .then(localMediaStream => {
         const chunks = []
@@ -25,8 +28,8 @@ class App extends React.Component {
         setTimeout(() => {
           mediaRecorder.stop()
           this.setState({ ready: true })
-          this.getVideo(delay)
-        }, delay * 1000);
+          this.getVideo(this.state.delay)
+        }, this.state.delay * 1000);
 
 
         mediaRecorder.onstop = () => {
@@ -55,12 +58,38 @@ class App extends React.Component {
     const video = document.querySelector('.player');
     video.classList.toggle('full')
     const title = document.querySelector('.title');
+    const sub = document.querySelector('.sub');
     if (title.style.display === 'none') {
       title.style.display = 'block';
+      sub.style.display = 'block';
       this.setState({ buttonText: 'GO FULL' })
     } else {
       title.style.display = 'none';
+      sub.style.display = 'none';
       this.setState({ buttonText: 'GO LOW' })
+    }
+  }
+
+  adjustDelay = () => {
+    this.setState({
+      adjust: !this.state.adjust
+    })
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      changedDelay: e.target.value
+    })
+    console.log(this.state.changedDelay)
+  }
+
+  submit = (e) => {
+    if (e.key === 'Enter' && this.state.changedDelay > 0 && this.state.changedDelay < 1000) {
+      this.setState({
+        delay: this.state.changedDelay,
+        adjust: false,
+        changedDelay: 5
+      })
     }
   }
 
@@ -68,6 +97,29 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className="title">THE DANCE MIRROR</div>
+        {this.state.adjust ?
+          <div className="sub"><input onChange={this.handleChange} onKeyDown={this.submit}></input> seconds
+          <img
+              className="gear"
+              onClick={this.adjustDelay}
+              src={Gear}
+              alt="gear svg"
+              width="20"
+              height="20"
+            />
+          </div>
+          :
+          <div className="sub">Delay: {this.state.delay}s
+        <img
+              className="gear"
+              onClick={this.adjustDelay}
+              src={Gear}
+              alt="gear svg"
+              width="20"
+              height="20"
+            />
+          </div>
+        }
         {this.state.ready ?
           <video className="player">
           </video>

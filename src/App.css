@@ -17,12 +17,34 @@ body::-webkit-scrollbar {
 }
 
 .title {
-  margin: 20px auto 20px auto;
+  margin: 10px auto 0 auto;
+}
+
+.sub {
+  font-size: 25px;
+  margin-top: 5px;
+  color: black;
+}
+
+.sub input {
+  padding: 8px;
+  width: 35px;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 3px;
+  font-size: 20px;
+}
+
+.gear {
+  margin-bottom: -1.3px;
+  margin-left: 7px;
+  cursor: pointer;
 }
 
 .loading {
   width: 80vh;
   height: 60vh;
+  margin-top: 20px;
   margin-bottom: 30px;
   background-color: black;
   color: white;
@@ -127,6 +149,7 @@ body::-webkit-scrollbar {
 .player {
   width: 80vh;
   height: 60vh;
+  margin-top: 20px;
   margin-bottom: 30px;
 }
 
@@ -401,6 +424,10 @@ button.full-button:active::before {
 
 @media screen and (max-width: 375px) {
   .title {
+    display: none;
+  }
+
+  .sub {
     display: none;
   }
 
