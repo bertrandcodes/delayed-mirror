@@ -34,14 +34,62 @@ body::-webkit-scrollbar {
   width: 100%;
 }
 
-.loading-div h2 {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 0;
-  color: white;
-  font-size: 20px;
+.message-holder {
+  position: absolute;
+  margin-top: 15px;
+  height: 30px;
+  width: 80vh;
+  overflow: hidden;
 }
 
+.messages {
+  position: absolute;
+  width: 80vh;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: white;
+  animation: slide 8s linear;
+}
+
+.messages h2 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@keyframes slide {
+  0% {
+    margin-top: -120px;
+  }
+  16% {
+    margin-top: -120px;
+  }
+  20% {
+    margin-top: -90px;
+  }
+  36% {
+    margin-top: -90px;
+  }
+  40% {
+    margin-top: -60px;
+  }
+  56% {
+    margin-top: -60px;
+  }
+  60% {
+    margin-top: -30px;
+  }
+  66% {
+    margin-top: -30px;
+  }
+  80% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
 .loader {
   margin: auto;
   width: 60%;

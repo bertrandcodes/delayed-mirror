@@ -75,7 +75,15 @@ class App extends React.Component {
           <div className="loading">
             <div className="loading-div">
               <div className="loader"> </div>
-              <h2>setting up the studio...</h2>
+              <div className="message-holder">
+                <div className="messages">
+                  <h2>use Chrome or Firefox</h2>
+                  <h2>make sure you allow webcam access</h2>
+                  <h2>bust a move!</h2>
+                  <h2>mopping the floors...</h2>
+                  <h2>setting up the studio...</h2>
+                </div>
+              </div>
             </div>
           </div>
         }
