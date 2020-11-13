@@ -96,29 +96,23 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className="title">THE DANCE MIRROR</div>
-        {this.state.adjust ?
-          <div className="sub"><input onChange={this.handleChange} onKeyDown={this.submit}></input> sec
+        <div className="delay-div">
+          {this.state.adjust ?
+            <div className="sub"><input onChange={this.handleChange} onKeyDown={this.submit}></input> sec
+          </div>
+            :
+            <div className="sub">Delay: {this.state.delay}s
+          </div>
+          }
           <img
-              className="gear"
-              onClick={this.adjustDelay}
-              src={Gear}
-              alt="gear svg"
-              width="20"
-              height="20"
-            />
-          </div>
-          :
-          <div className="sub">Delay: {this.state.delay}s
-        <img
-              className="gear"
-              onClick={this.adjustDelay}
-              src={Gear}
-              alt="gear svg"
-              width="20"
-              height="20"
-            />
-          </div>
-        }
+            className="gear"
+            onClick={this.adjustDelay}
+            src={Gear}
+            alt="gear svg"
+            width="20"
+            height="20"
+          />
+        </div>
         {this.state.ready ?
           <video className="player">
           </video>
