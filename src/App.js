@@ -57,7 +57,7 @@ class App extends React.Component {
     const video = document.querySelector('.player');
     video.classList.toggle('full')
     const title = document.querySelector('.title');
-    const sub = document.querySelector('.sub');
+    const sub = document.querySelector('.delay-div');
     if (title.style.display === 'none') {
       title.style.display = 'block';
       sub.style.display = 'block';
